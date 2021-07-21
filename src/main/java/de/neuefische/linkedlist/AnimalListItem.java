@@ -9,7 +9,8 @@ public class AnimalListItem {
         this.value = value;
     }
     public String toString(){
-        return "platzhalter";
+        return "name of liste item: " + value.getName();
+//        return "name: " + value.getName() + ", next: " + next.value.getName();
     }
 
     public Animal getValue() {

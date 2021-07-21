@@ -5,25 +5,36 @@ public class AnimalLinkedList {
 
     @Override
     public String toString() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (head == null) {
-            return "";
+            return result.toString();
         }
-        return head.getValue().getName();
+        AnimalListItem currentItem = head;
+        result.append(currentItem.getValue().getName());
+        while (currentItem.getNext() != null) {
+            result.append(" -> ");
+            currentItem = currentItem.getNext();
+            result.append(currentItem.getValue().getName());
+            System.out.println(result);
+        }
+
+        return result.toString();
 
     }
     public void add(Animal newAnimal){
+        AnimalListItem newItem = new AnimalListItem(newAnimal);
         if (head == null) {
-            AnimalListItem item1 = new AnimalListItem(newAnimal);
-            System.out.println(item1.getNext());
-            System.out.println(item1.getValue());
-            head = item1;
+            head = newItem;
         } else {
-           AnimalListItem item2 = new AnimalListItem(newAnimal);
-           head.setNext(item2);
-           head = item2;
-           System.out.print(head.getValue());
-            System.out.print(head.getNext());
+            AnimalListItem currentItem = head;
+            while (currentItem.getNext() != null) {
+                currentItem = currentItem.getNext();
+//                System.out.println("head: " + head.getValue());
+//                AnimalListItem newItem = new AnimalListItem(newAnimal);
+//                head.setNext(newItem);
+//                head = newItem;
+            }
+            currentItem.setNext(newItem);
         }
 
 
