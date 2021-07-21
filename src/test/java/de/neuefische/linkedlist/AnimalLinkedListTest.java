@@ -109,11 +109,32 @@ class AnimalLinkedListTest {
     }
 
     @Test
+    public void testRemoveSecond() {
+        //given
+        Animal animal1 = new Animal("Dumbo");
+        Animal animal2 = new Animal("Bambi");
+        Animal animal3 = new Animal("Hedwig");
+        Animal animal4 = new Animal("Snoopy");
+
+        AnimalLinkedList list = new AnimalLinkedList();
+        list.add(animal1);
+        list.add(animal2);
+        list.add(animal3);
+        list.add(animal4);
+
+        //when
+        list.remove(animal2);
+        String actual = list.toString();
+        String expected = "Dumbo -> Hedwig -> Snoopy";
+        //then
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testRemoveEmpty() {
         //given
         Animal animal4 = new Animal("Snoopy");
         AnimalLinkedList list = new AnimalLinkedList();
-        list.add(animal4);
 
         //when
         list.remove(animal4);

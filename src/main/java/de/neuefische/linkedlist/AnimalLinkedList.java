@@ -41,10 +41,20 @@ public class AnimalLinkedList {
             System.out.println("Animal list empty");
         } else {
             AnimalListItem currentItem = head;
-            if(currentItem.getValue().equals(animalToBeRemoved)){
-                System.out.println("Animal found in first element");
-                head = head.getNext();
-                System.out.println("First Animal removed, and head is next element");
+            AnimalListItem previousItem = null;
+            while (currentItem != null) {
+                if (currentItem.getValue().equals(animalToBeRemoved)) {
+                    if(previousItem==null){
+                        head = currentItem.getNext();
+                    } else {
+                        previousItem.setNext(currentItem.getNext());
+                    }
+//                    System.out.println("Animal found in first element");
+//                    head = head.getNext();
+//                    System.out.println("First Animal removed, and head is next element");
+                }
+                previousItem = currentItem;
+                currentItem = currentItem.getNext();
             }
         }
     }
