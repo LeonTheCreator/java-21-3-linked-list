@@ -39,4 +39,17 @@ public class AnimalLinkedList {
 
 
     }
+
+    public void remove(Animal animalToBeRemoved) {
+        if(head==null){
+            System.out.println("Animal list empty");
+        } else {
+            AnimalListItem currentItem = head;
+            if(currentItem.getValue().equals(animalToBeRemoved)){
+                System.out.println("Animal found in first element");
+                head = null;
+                System.out.println("First Animal removed, and head is empty");
+            }
+        }
+    }
 }
