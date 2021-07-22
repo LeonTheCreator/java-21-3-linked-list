@@ -9,21 +9,29 @@ public class AnimalLinkedList {
         if (head == null) {
             return "";
         }
-        return head.getValue().getName();
+        String start = head.getValue().getName();
+        String arrow = " -> ";
+        AnimalListItem currentListElement = head;
+        while(currentListElement.getNext() != null) {
+            start += arrow;
+            currentListElement = currentListElement.getNext();
+            start += currentListElement.getValue().getName();
+        }
+        return start;
 
     }
     public void add(Animal newAnimal){
+        AnimalListItem item = new AnimalListItem(newAnimal);
+
         if (head == null) {
-            AnimalListItem item1 = new AnimalListItem(newAnimal);
-            System.out.println(item1.getNext());
-            System.out.println(item1.getValue());
-            head = item1;
+            head = item;
         } else {
-           AnimalListItem item2 = new AnimalListItem(newAnimal);
-           head.setNext(item2);
-           head = item2;
-           System.out.print(head.getValue());
-            System.out.print(head.getNext());
+            AnimalListItem currentItem = head;
+            while(currentItem.getNext() != null) {
+                currentItem = currentItem.getNext();
+            }
+            currentItem.setNext(item);
+
         }
 
 

@@ -31,7 +31,7 @@ class AnimalLinkedListTest {
     }
 
     @Test
-    public void test() {
+    public void testAddTwo() {
         //given
         Animal animal1 = new Animal("Dumbo");
         Animal animal2 = new Animal("Bambi");
@@ -42,6 +42,24 @@ class AnimalLinkedListTest {
         list.add(animal2);
         String actual = list.toString();
         String expected = "Dumbo -> Bambi";
+        //then
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAddThree() {
+        //given
+        Animal animal1 = new Animal("Dumbo");
+        Animal animal2 = new Animal("Bambi");
+        Animal animal3 = new Animal("Hedwig");
+
+        AnimalLinkedList list = new AnimalLinkedList();
+        //when
+        list.add(animal1);
+        list.add(animal2);
+        list.add(animal3);
+        String actual = list.toString();
+        String expected = "Dumbo -> Bambi -> Hedwig";
         //then
         assertEquals(expected, actual);
     }
