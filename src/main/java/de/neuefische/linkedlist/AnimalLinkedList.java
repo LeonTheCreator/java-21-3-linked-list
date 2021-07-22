@@ -37,22 +37,18 @@ public class AnimalLinkedList {
     }
 
     public void remove(Animal animalToBeRemoved) {
-        if(head==null){
-            System.out.println("Animal list empty");
-        } else {
-            AnimalListItem currentItem = head;
-            AnimalListItem previousItem = null;
-            while (currentItem != null) {
-                if (currentItem.getValue().equals(animalToBeRemoved)) {
-                    if(previousItem==null){
-                        head = currentItem.getNext();
-                    } else {
-                        previousItem.setNext(currentItem.getNext());
-                    }
+        AnimalListItem currentItem = head;
+        AnimalListItem previousItem = null;
+        while (currentItem != null) {
+            if (currentItem.getValue().equals(animalToBeRemoved)) {
+                if(previousItem==null){
+                    head = currentItem.getNext();
+                } else {
+                    previousItem.setNext(currentItem.getNext());
                 }
-                previousItem = currentItem;
-                currentItem = currentItem.getNext();
             }
+            previousItem = currentItem;
+            currentItem = currentItem.getNext();
         }
     }
 }

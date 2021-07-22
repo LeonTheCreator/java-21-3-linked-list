@@ -131,6 +131,33 @@ class AnimalLinkedListTest {
     }
 
     @Test
+    public void testRemoveMultiple() {
+        //given
+        Animal animal1 = new Animal("Dumbo");
+        Animal animal2 = new Animal("Bambi");
+        Animal animal3 = new Animal("Hedwig");
+        Animal animal4 = new Animal("Hedwig");
+        Animal animal5 = new Animal("Snoopy");
+        Animal animal6 = new Animal("Bambi");
+
+        AnimalLinkedList list = new AnimalLinkedList();
+        list.add(animal1);
+        list.add(animal2);
+        list.add(animal3);
+        list.add(animal4);
+        list.add(animal5);
+        list.add(animal6);
+
+        //when
+        list.remove(animal4);
+        list.remove(animal2);
+        String actual = list.toString();
+        String expected = "Dumbo -> Hedwig -> Snoopy";
+        //then
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testRemoveEmpty() {
         //given
         Animal animal4 = new Animal("Snoopy");
